@@ -12,7 +12,7 @@ from sensor_msgs.msg import JointState
 
 
 MODEL_PATH = (
-    Path("/home/chan/omy_franka_teleop")
+    Path(__file__).resolve().parents[1]
     / "robotis_mujoco_menagerie"
     / "robotis_omy"
     / "scene.xml"

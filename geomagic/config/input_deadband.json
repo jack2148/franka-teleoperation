@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "translation_on_m": 0.0002,
+  "translation_off_m": 0.0001,
+  "rotation_on_rad": 0.008726646259971648,
+  "rotation_off_rad": 0.004363323129985824,
+  "dwell_s": 0.03,
+  "quiet_dwell_s": 0.05,
+  "engage_ramp_s": 0.03,
+  "tuning_status": "TUNING_PENDING"
+}

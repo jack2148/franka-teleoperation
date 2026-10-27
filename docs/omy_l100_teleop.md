@@ -1,5 +1,7 @@
 # OMY-L100 → MuJoCo 텔레옵
 
+> **Historical reference.** The text and commands below describe the earlier OMY system. Its original scene/model bundle, including the front wall, is not included or reconstructed in this source/reference release. Present-tense asset/installation descriptions are historical, not current readiness claims. See [reproduction limits](HISTORICAL_OMY_LIMITATIONS.md).
+
 ## 목표
 
 실제 ROBOTIS OMY-L100 리더암의 관절 상태를 ROS 2로 받아 MuJoCo OMY 모델이 따라 움직이도록 한다.
@@ -27,13 +29,13 @@ omy_franka_teleop/
 
 ```bash
 source /opt/ros/humble/setup.bash
-source /home/chan/omy_franka_teleop/open_manipulator_omy/install/setup.bash
+source $TELEOP_ROOT/open_manipulator_omy/install/setup.bash
 ```
 
 ## 2. ROS workspace 빌드
 
 ```bash
-cd /home/chan/omy_franka_teleop/open_manipulator_omy
+cd $TELEOP_ROOT/open_manipulator_omy
 source /opt/ros/humble/setup.bash
 colcon build --symlink-install
 source install/setup.bash
@@ -66,7 +68,7 @@ joint1, joint2, joint3, joint4, joint5, joint6, rh_r1_joint
 실제 leader가 실행 중인 별도 터미널에서 실행한다.
 
 ```bash
-cd /home/chan/omy_franka_teleop
+cd $TELEOP_ROOT
 source /opt/ros/humble/setup.bash
 source open_manipulator_omy/install/setup.bash
 /usr/bin/python3 scripts/omy_sim_bridge.py
@@ -77,7 +79,7 @@ source open_manipulator_omy/install/setup.bash
 상단 `launch/omy_sim_sync.py`는 실제 leader와 MuJoCo bridge를 함께 실행한다.
 
 ```bash
-cd /home/chan/omy_franka_teleop
+cd $TELEOP_ROOT
 source /opt/ros/humble/setup.bash
 source open_manipulator_omy/install/setup.bash
 /usr/bin/python3 launch/omy_sim_sync.py port_name:=/dev/ttyUSB0

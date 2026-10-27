@@ -12,3 +12,10 @@ __pycache__/
 .codex/
 *.mp4
 *.webm
+
+# Device SDKs, local outputs, and generated artifacts
+geomagic/device/bin/
+*.log
+MUJOCO_LOG.TXT
+.pytest_cache/
+.venv/

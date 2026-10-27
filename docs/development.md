@@ -1,5 +1,7 @@
 # OMY–FR3 Cartesian 텔레오퍼레이션 개발 문서
 
+> **Historical reference.** The text and commands below describe the earlier OMY system. Its original scene/model bundle, including the front wall, is not included or reconstructed in this source/reference release. Present-tense asset/installation descriptions are historical, not current readiness claims. See [reproduction limits](HISTORICAL_OMY_LIMITATIONS.md).
+
 > Current architecture and implementation reference
 
 ## 1. 문서 목적과 구현 범위

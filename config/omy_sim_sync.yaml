@@ -1,6 +1,6 @@
 omy_sim_bridge:
   ros__parameters:
-    model_path: "/home/chan/omy_franka_teleop/robotis_mujoco_menagerie/robotis_omy/scene.xml"
+    model_path: "robotis_mujoco_menagerie/robotis_omy/scene.xml"
     input_topic: "/leader/joint_states"
     output_topic: "/sim/joint_states"
     update_rate: 500.0

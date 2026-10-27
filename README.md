@@ -1,319 +1,99 @@
-# OMY-L100 → Franka FR3 Teleoperation
-
-<p align="center">
-  <img src="docs/images/teleop/development/full_pose_cartesian_teleoperation.gif" width="850">
-</p>
-
-<p align="center">
-  <b>Physical OMY-L100 → Cartesian retargeting → DLS IK → MuJoCo Franka FR3</b>
-</p>
-
-A ROS 2 teleoperation platform using a physical OMY-L100 as the leader and a
-Franka FR3 simulated in MuJoCo as the follower for robot manipulation,
-demonstration collection, and robot-learning experiments.
+# Franka Teleoperation
 
 ## Overview
 
-This repository implements a teleoperation pipeline from a **physical OMY-L100 leader** to a **Franka FR3 simulated in MuJoCo**.
+**Public v1 is a source/reference release.** It provides the ordinary Geomagic Touch device, bridge, mapping, control and haptic source, CPU regression tests, and the historical OMY-L100 Cartesian teleoperation implementation for MuJoCo Franka FR3.
 
-The OMY-L100 motion is mapped into Cartesian commands and executed on the redundant 7-DoF FR3 using **velocity-level damped least-squares inverse kinematics**, with optional **null-space posture control**.
+**Historical reproduction limit:** the original OMY MuJoCo scene/model bundle was not committed, and its exact asset provenance could not be recovered. Remaining local model copies are modified derivatives and are not used as substitutes. Original OMY launchers/configs are preserved as reference code; this repository does **not** provide a ready-to-run reconstruction of the original OMY environment. **Physical Franka deployment is not claimed.**
 
-The current validated scope is:
+The two interfaces have distinct implementations and validation scopes. Current Touch software is tested with synthetic input and CPU MuJoCo; historical OMY coverage is limited to source and mathematical tests. [Validation evidence](docs/VALIDATION.md) and [release boundaries](docs/PUBLIC_V1_SCOPE.md) define those claims.
 
-> **Physical OMY-L100 → MuJoCo Franka FR3 free-space teleoperation**
+## Demo / Architecture
 
-Physical FR3 deployment is not claimed.
-
-## Key Features
-
-- Cartesian motion retargeting from OMY-L100 to Franka FR3
-- Position-only, orientation-only, and full-pose teleoperation
-- Velocity-level DLS IK for a 6D task on the redundant 7-DoF FR3
-- Null-space posture regulation
-- Runtime clutch anchoring for continuous relative motion
-- Target velocity and acceleration conditioning
-- Joint-velocity limiting
-- Target / actual end-effector pose and IK diagnostic logging
-
-## System Architecture
-
-```text
-OMY-L100 hardware
-    ↓ ROS 2 /leader/joint_states
-OMY forward kinematics
-    ↓
-Runtime clutch anchor
-    ↓
-Relative Cartesian command
-    ↓
-Position / orientation retargeting
-    ↓
-Target conditioning
-    ↓
-Velocity-level DLS IK
-for a 6D task on the redundant 7-DoF FR3
-    +
-optional null-space posture control
-    ↓
-MuJoCo Franka FR3
+```mermaid
+flowchart LR
+    T[Geomagic Touch device / UDP source] --> TM[Touch mapping and clutch]
+    TM --> TC[Target conditioning and DLS control]
+    TC --> S[MuJoCo FR3 via companion integration]
+    O[Historical OMY joint states] --> FK[OMY FK and Cartesian retargeting]
+    FK --> OC[Historical OMY controller source]
+    OC --> H[Original scene dependency unavailable]
 ```
 
-## Haptic Feedback — In Progress
+<details>
+<summary>Historical OMY teleoperation demo — archival evidence, not a current reproduction</summary>
 
-The teleoperation platform is currently being extended with
-contact-force-based haptic feedback for manipulation experiments.
+![Historical OMY Cartesian teleoperation](docs/images/teleop/development/full_pose_cartesian_teleoperation.gif)
 
-Current development direction:
+This recording documents the earlier system. It does not establish that its missing scene assets can be reconstructed from this release.
 
-```text
-MuJoCo contact / interaction forces
-    ↓
-force processing / scaling
-    ↓
-Jacobian-transpose mapping
-    ↓
-OMY-L100 joint torque feedback
-```
+</details>
 
-This module is currently under development.
+## Current Interface — Geomagic Touch
 
-## Demonstrations and Robot Learning
+The `geomagic/` tree contains the device interface, UDP transport, Cartesian position/orientation mapping, clutch anchors, target conditioning, DLS/null-space related control, diagnostics, and contact-force haptic implementation. Reference helpers and the adapted runtime remain separate; no common controller was extracted.
 
-Teleoperation demonstrations are collected for manipulation experiments,
-converted to LeRobot format, and used for ACT and Diffusion Policy training
-and evaluation:
+CPU tests cover these software paths using existing synthetic input/protocol fixtures and MuJoCo. The public device and haptic source is included, but OpenHaptics headers/runtime and physical Touch hardware are external. SDK compilation, physical haptic acceptance, device timing and hard real-time performance are separate, unverified release gates.
 
-```text
-Teleoperation demonstrations
-    ↓
-LeRobot dataset conversion
-    ↓
-ACT / Diffusion Policy training and evaluation
-```
+## Historical Interface — OMY-L100
 
-Trajectory coverage, demonstration-distribution analysis, and data-efficient
-demonstration collection are current research directions. Related policy
-experiments are documented in [dp-act-policy-study](https://github.com/jack2148/dp-act-policy-study).
+The original layout is retained: `teleop`, `simul`, `launch/`, `src/` and `config/`. It records OMY-L100 joint-state input, FK-based Cartesian retargeting, pose mapping, DLS inverse kinematics, null-space control, clutch/command conditioning, diagnostics and collision-feedback computation.
 
-## Project Status
+The [architecture](docs/development.md), [debugging record](docs/debugging.md) and [original OMY setup notes](docs/omy_l100_teleop.md) are historical references. Their commands and model paths describe the earlier installation, not a ready-to-run public setup. The exact scene bundle, including the custom front wall and related sensor modifications, is unavailable. The OMY mathematical tests do not validate model loading, ROS bringup or hardware operation.
 
-| Component | Status |
-|---|---|
-| OMY-L100 → MuJoCo FR3 teleoperation | Implemented |
-| Cartesian pose retargeting | Implemented |
-| DLS inverse kinematics | Implemented |
-| Null-space control | Implemented |
-| Demonstration collection | Implemented |
-| LeRobot dataset conversion | Implemented |
-| ACT / Diffusion Policy experiments | Implemented |
-| Haptic feedback | In progress |
-| Data-efficient demonstration collection | In progress |
+## Control Pipeline
 
-## Verified Scope
+Both interfaces use Cartesian commands, but retain their own mapping and implementation:
 
-The following behaviors have been tested in the current simulation-stage setup:
+1. Read the device pose, or derive the historical OMY pose through FK.
+2. Capture clutch anchors and map relative position/orientation into a command pose.
+3. Apply target/command conditioning and motion limits.
+4. Compute DLS joint commands with the interface's null-space behavior.
+5. Apply commands through the corresponding simulator integration.
 
-- Position-only teleoperation
-- Orientation-only teleoperation
-- Full-pose teleoperation
-- 6D Cartesian tracking using FR3 position and rotational Jacobians
-- Runtime clutch anchoring and command continuity
-- Target velocity / acceleration conditioning
-- Joint-velocity limiting
-- Per-run logging of target pose, actual pose, tracking error, and IK diagnostics
+For Touch, see [pose mapping](geomagic/teleop/pose_mapper.py), [controller](geomagic/teleop/fr3_target_controller.py) and [backend](geomagic/leader/teleop_backend.py). For historical OMY, see the [original bridge source](launch/FR3_omy_bridge.py). Source publication does not imply identical gains, coordinate conventions or validation across the two paths.
 
-The controller uses a nominal:
+## Validation
 
-```text
-CONTROL_HZ = 1000
-```
+| Evidence | Scope |
+| --- | --- |
+| 672 Geomagic tests | Existing CPU software regressions; no physical device acceptance claim |
+| 6 OMY mathematical tests | Four tests execute pure functions from the shipped bridge; two retain the historical mathematical checks |
+| 2,800-step control equivalence | Four synthetic Touch input modes; frozen and relocated public snapshots produce identical recorded control/state arrays |
+| Source freeze | Controller, gains, mapping, DLS/null-space and conditioning remain unchanged during release-contract revision |
 
-simulation/control target.
-
-This is a **configured target rate**, not a measured hard-real-time guarantee.
-
-No quantitative claim is made for:
-
-- physical Franka FR3 hardware performance
-- randomized-task generalization
-- production real-time operation
-
-## Teleoperation Modes
-
-Three control modes are supported.
-
-| Mode | Behavior |
-|---|---|
-| `position_only` | OMY position is retargeted while FR3 orientation remains anchored |
-| `orientation_only` | OMY orientation is retargeted while FR3 position remains anchored |
-| `full_pose` | Position and orientation are retargeted together |
-
-The current default mode is:
-
-```python
-TELEOP_MODE = "full_pose"
-```
-
-## Quick Start
-
-### Environment
-
-Tested with:
-
-- Ubuntu 22.04
-- ROS 2 Humble
-- Python 3.10
-- MuJoCo
-- Physical OMY-L100 leader
-
-This repository also depends on local robot models and ROS workspaces that are **not included in the public repository**.
-
-Set the repository location:
-
-```bash
-export TELEOP_ROOT=/path/to/OMY_FRANKA_TELEOP
-cd "$TELEOP_ROOT"
-```
-
-### Integrated teleoperation
-
-After the required local dependencies are configured:
-
-```bash
-OMY_PORT=/dev/ttyUSB0 ./simul
-```
-
-### OMY leader only
-
-```bash
-./teleop /dev/ttyUSB0
-```
-
-### Direct bridge execution
-
-For development or debugging:
-
-```bash
-source /opt/ros/humble/setup.bash
-source "$TELEOP_ROOT/open_manipulator_omy/install/setup.bash"
-
-/usr/bin/python3 launch/FR3_omy_bridge.py
-```
-
-Some external model and ROS-workspace paths are currently configured locally, so a clean clone may require path configuration before the wrappers can be used.
-
-## Main Bridge
-
-The main teleoperation bridge is:
-
-```text
-launch/FR3_omy_bridge.py
-```
-
-Its data flow is:
-
-```text
-/leader/joint_states
-    ↓
-OMY MuJoCo forward kinematics
-    ↓
-Runtime clutch anchor
-    ↓
-Position / orientation mapping
-    ↓
-Cartesian target conditioning
-    ↓
-Velocity-level DLS IK
-    ↓
-Null-space posture control
-    ↓
-FR3 MuJoCo actuator command
-```
-
-The OMY model is used for forward kinematics, while the FR3 model is used for target tracking and simulated actuator dynamics.
+See [test results, evidence hashes and limitations](docs/VALIDATION.md). Tests do not establish original OMY scene reproduction, physical Franka control, policy success rates or hard real-time guarantees.
 
 ## Repository Structure
 
-```text
-OMY_FRANKA_TELEOP/
-├── launch/
-│   ├── FR3_omy_bridge.py
-│   ├── fr3_omy_sync.py
-│   ├── FR3_EEposes.py
-│   └── omy_EEposes.py
-├── scripts/
-│   ├── omy_sim_bridge.py
-│   ├── plot_orientation_log.py
-│   └── test_fr3_joint_isolation.py
-├── config/
-├── src/
-├── tests/
-├── docs/
-├── simul
-├── teleop
-└── README.md
-```
+| Path | Purpose |
+| --- | --- |
+| `geomagic/device/`, `geomagic/bridge/` | Public Touch device/transport source; SDK is external |
+| `geomagic/teleop/`, `geomagic/leader/`, `geomagic/standalone/` | Mapping, control, integration and haptic source |
+| `geomagic/vendor/` | Preserved reference/helper snapshots and provenance |
+| `geomagic/tests/`, `tests/` | Public CPU regressions and historical OMY mathematics |
+| `hardware_validation/` | Explicit SDK-dependent checks, outside the CPU test collection |
+| `teleop`, `simul`, `launch/`, `src/`, `config/` | Historical OMY source/reference layout |
+| `docs/`, `provenance/` | Architecture, validation and source-cutoff evidence |
 
-External robot models and local ROS workspaces are intentionally not shown as part of the tracked repository tree.
+## Installation / Dependencies
 
-## Diagnostics
+Start with [INSTALL.md](INSTALL.md). Source inspection and OMY mathematical tests do not require the missing scene bundle. Full Touch integration regressions use a paired checkout of `franka-imitation-learning` and its documented CPU dependencies. Device operation additionally requires OpenHaptics and hardware; historical ROS/OMY launch commands are reference material.
 
-When logging is enabled, teleoperation runs can record:
+## Reproducibility & Historical Limitations
 
-- target end-effector position
-- actual end-effector position
-- rotational pose representation
-- tracking error
-- target dynamics
-- IK / joint-velocity diagnostics
+The source cutoff and per-file hashes are preserved in [SOURCE_CUTOFF.json](provenance/SOURCE_CUTOFF.json). Later research-workspace changes are not automatically incorporated.
 
-Logs can be visualized using:
+The original OMY vendor trees were excluded from Git. A later migration explicitly removed the FR3 collision-test wall, wrist F/T sensors and F/T site. That modified copy cannot establish the original scene's bytes or contact behavior. No derivative scene, latest upstream model, guessed wall/sensor patch or invented historical asset hash is installed here. [Historical asset findings](docs/HISTORICAL_OMY_LIMITATIONS.md) record the available evidence.
 
-```bash
-/usr/bin/python3 scripts/plot_orientation_log.py
-```
+This limitation is part of the source/reference release contract. It is not a claim that the original executable environment has been recovered.
 
-## Related Robot-Learning Work
+## Related Robot Learning Repository
 
-Teleoperation demonstration collection and manipulation-policy experiments are maintained separately in:
+The companion **`franka-imitation-learning`** candidate contains Square, ordinary Touch collection, dataset validation/conversion, ACT and Diffusion Policy wrappers, and analysis of fixed TEST50 results. Its release contract is executable/research artifacts within its documented limits, distinct from this source/reference release. Publication is pending; no live successor URL is asserted here.
 
-### [dp-act-policy-study](https://github.com/jack2148/dp-act-policy-study)
+The companion reports ACT 27/50 (54%) and Diffusion Policy 43/50 (86%) for the specified checkpoints on the same frozen TEST50. Those are observations under that protocol, not algorithm-wide superiority. Learning code, configurations, results and historical TRAIN provenance limits are unchanged by this release-contract revision.
 
-That repository contains:
+## Third-Party / Provenance
 
-- teleoperation demonstration datasets
-- LeRobot-based manipulation pipelines
-- ACT experiments
-- Diffusion Policy experiments
-- Push-T policy analysis
-- MuJoCo FR3 manipulation-policy evaluations
-
-The two repositories represent different layers of the current research workflow:
-
-```text
-OMY_FRANKA_TELEOP
-    ↓
-robot interaction / teleoperation / kinematics
-    ↓
-demonstration collection
-    ↓
-dp-act-policy-study
-    ↓
-imitation-learning policy training and analysis
-```
-
-## Documentation
-
-More detailed development and debugging notes are available under:
-
-- [`docs/`](docs/)
-- [Position / full-pose debugging](docs/position_mode_debugging.md)
-- [Development log](docs/development.md)
-- [OMY-L100 teleoperation notes](docs/omy_l100_teleop.md)
-
-## Current Limitations
-
-- The follower robot is currently evaluated in **MuJoCo**, not on physical FR3 hardware.
-- External robot models and ROS workspaces require local configuration.
-- The current Python control loop is not a hard-real-time controller.
-- Physical-robot safety, collision handling, watchdogs, and hardware validation are outside the current public scope.
+See [THIRD_PARTY.md](THIRD_PARTY.md) for source provenance, author permission and external SDK boundaries. Existing notices remain authoritative; no blanket license or rights to absent assets are inferred. The original OMY history base is retained, and historical and current control implementations are not presented as one implementation.

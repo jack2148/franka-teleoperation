@@ -1,5 +1,7 @@
 # FR3–OMY Cartesian Teleoperation 디버깅 기록
 
+> **Historical reference.** The text and commands below describe the earlier OMY system. Its original scene/model bundle, including the front wall, is not included or reconstructed in this source/reference release. Present-tense asset/installation descriptions are historical, not current readiness claims. See [reproduction limits](HISTORICAL_OMY_LIMITATIONS.md).
+
 최초 작성: 2026-07-24
 최종 수정: 2026-07-30
 

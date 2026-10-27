@@ -4,7 +4,8 @@ set -Eeo pipefail
 
 PORT_NAME="${1:-/dev/ttyUSB0}"
 ROS_DISTRO_SETUP="/opt/ros/humble/setup.bash"
-OMY_SETUP="/home/chan/omy_franka_teleop/open_manipulator_omy/install/setup.bash"
+TELEOP_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+OMY_SETUP="${OMY_ROS_WS:-$TELEOP_ROOT/open_manipulator_omy}/install/setup.bash"
 
 source "${ROS_DISTRO_SETUP}"
 source "${OMY_SETUP}"

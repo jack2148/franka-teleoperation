@@ -10,7 +10,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 
 
-WORKSPACE_ROOT = Path("/home/chan/omy_franka_teleop")
+WORKSPACE_ROOT = Path(__file__).resolve().parents[1]
 BRIDGE_SCRIPT = WORKSPACE_ROOT / "launch" / "FR3_omy_bridge.py"
 
 

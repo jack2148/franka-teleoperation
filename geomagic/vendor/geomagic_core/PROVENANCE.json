@@ -1,0 +1,17 @@
+{
+  "source_root": "../geomagic_reference",
+  "source_sha256": {
+    "frames.py": "37c3cb21e6b54cbf9c2e88e16ebee7fd1c42558375b5d6447da76c4503f0ce5d",
+    "rotations.py": "7031e77ac9c10568038a74f3ae26b120a333d5bfc5a3a4cf218c3c9e109d0eda",
+    "scaling.py": "ef7ceeebab7928cc96e9b97b784eddfa0eb5faf1bf0034a97fab0ecfa65a88eb",
+    "clutch.py": "24359449b6afd716e2dad365c86a08e68e7230c2211bb098b0e9c90b3aa62206",
+    "pose_mapping.py": "a4105eec0f17578a54ac0860bcc619a6ec59aef5765e0ef182ad16ab6b6ac125",
+    "controller.py": "30b96d9d65033d0c21a13d27acdf7960c359067d9ca9a4081715f3004e39e0e7"
+  },
+  "changes": [
+    "state imports use .state",
+    "frames.py omits map_force_to_device; pose formulas unchanged",
+    "pose_mapping.py: GEOMAGIC_MAPPING_LIMITS = DISABLED. Removed the reference max_delta_per_update_m (per-sample position step), max_workspace_excursion_m (anchor-relative position excursion), max_orientation_delta_per_update_rad (per-sample rotation step) and max_orientation_excursion_rad (anchor-relative rotation excursion): constructor arguments, validation and the clamps in update(); the now-unused limited_rotation import is dropped. Frame map, position scale, rotation formula/sign, anchoring, clutch and the optional absolute workspace box are unchanged; all other code is AST-identical to the source (enforced by tests/test_pose_mapper.py). Robot-side FR3 conditioning/DLS/joint limits remain active."
+  ],
+  "publication_permission": "Author confirmed original authorship and permission to publish on 2026-10-27."
+}

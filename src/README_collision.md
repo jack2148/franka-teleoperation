@@ -1,6 +1,8 @@
 # FR3 collision feedback module
 
-`/home/chan/omy_franka_teleop/src/fr3_collision_feedback.py` is a bridge-neutral
+> **Historical reference.** The text and commands below describe the earlier OMY system. Its original scene/model bundle, including the front wall, is not included or reconstructed in this source/reference release. Present-tense asset/installation descriptions are historical, not current readiness claims. See [reproduction limits](../docs/HISTORICAL_OMY_LIMITATIONS.md).
+
+`$TELEOP_ROOT/src/fr3_collision_feedback.py` is a bridge-neutral
 MuJoCo collision layer. It is deliberately separate from ROS and Dynamixel
 current control.
 

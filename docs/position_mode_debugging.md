@@ -1,5 +1,7 @@
 # OMY–FR3 Position 및 Full-Pose 텔레오퍼레이션 디버깅
 
+> **Historical reference.** The text and commands below describe the earlier OMY system. Its original scene/model bundle, including the front wall, is not included or reconstructed in this source/reference release. Present-tense asset/installation descriptions are historical, not current readiness claims. See [reproduction limits](HISTORICAL_OMY_LIMITATIONS.md).
+
 > Milestone 1: MuJoCo 단방향 Cartesian 텔레오퍼레이션 안정화
 
 ## 1. 문서 개요

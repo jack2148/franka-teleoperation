@@ -1,0 +1,655 @@
+{
+  "frozen_at": "2026-10-27T14:50:55.156299+09:00",
+  "source_cutoff": "validated relocated snapshot from 2026-10-27 14:33\u201314:43 KST; NOT current workspace",
+  "upstream_omy_main": "985b9b0d82d4edce2d9bbf7dbfeee4919534924e",
+  "previous_regression": "655 passed, 2800 control steps exact equality",
+  "manifest_sha256": "02dcc4b2a1d6539df2ba6fc982f73acfecf9d0aba16117a5807aac5a735c5395",
+  "files": [
+    {
+      "path": "franka-teleoperation/.gitignore",
+      "sha256": "a1ed74c05612b26749ac75ad61a75c18f56d08b77f0ee9b66424bbfac4a3635e",
+      "bytes": 257
+    },
+    {
+      "path": "franka-teleoperation/Adobe Express - IMG_8690.gif",
+      "sha256": "fa3814c76dfd318836e6a0ba44b506d962ca52ff77017b487db7fe15561fd200",
+      "bytes": 1804934
+    },
+    {
+      "path": "franka-teleoperation/README.md",
+      "sha256": "61373631f4f59bc04f719b96b414175c70408aedcb865eff17ee701ef9864298",
+      "bytes": 8140
+    },
+    {
+      "path": "franka-teleoperation/config/omy_sim_sync.yaml",
+      "sha256": "803a845acc85f18cdb107eb60034c37741fdde007ed02987b35e643b67b05074",
+      "bytes": 200
+    },
+    {
+      "path": "franka-teleoperation/docs/archive/debugging_full_log_20260724_20260730.md",
+      "sha256": "367e0c91cb04307090a6414b9d091f0138a20fe1251b8aee5e391183a46f3d8e",
+      "bytes": 30110
+    },
+    {
+      "path": "franka-teleoperation/docs/archive/development_log_20260723_20260730.md",
+      "sha256": "82413e176ea98621be51b1822cf8aab040abb6a9c88c845e14bfe4bcdc5a510f",
+      "bytes": 32699
+    },
+    {
+      "path": "franka-teleoperation/docs/assets/fr3-omy-coordinate-transform.png",
+      "sha256": "9932a999351bf05be68f15493b0e17a1b577cf5283766d0d9dea2f541d6b014f",
+      "bytes": 1357258
+    },
+    {
+      "path": "franka-teleoperation/docs/debugging.md",
+      "sha256": "367e0c91cb04307090a6414b9d091f0138a20fe1251b8aee5e391183a46f3d8e",
+      "bytes": 30110
+    },
+    {
+      "path": "franka-teleoperation/docs/development.md",
+      "sha256": "f453a82cc58cf88cdb594d2ee5f1a7000cff6bb2fbf31a698e463d0a3f20cb93",
+      "bytes": 21785
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/debugging/01_initial_orientation_tracking.png",
+      "sha256": "270c0bd80a039978f874286d3b7fe49ce1c7e46b9aee2d7aa1e243ef1a61f954",
+      "bytes": 202371
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/debugging/02_max_dq_0004_before_anchor_fix.png",
+      "sha256": "289f6ef0003ab7e79fdb61fea3fbe4aa8f83ce7ef11a82aee52976295419411a",
+      "bytes": 268886
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/debugging/03_anchor_update_result.png",
+      "sha256": "b0af8408a06cca4ee68cdaab9ee11c1e2730262fe50d57d31792c1335a0c423a",
+      "bytes": 311567
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/debugging/04_clutch_jump_check.png",
+      "sha256": "a9c325fc7e4cda06ec73cf394054e107e17d7a2b8fabc090f72ce79ee59e89ea",
+      "bytes": 208971
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/debugging/05_max_dq_0003.png",
+      "sha256": "65fc3b69f351119d008d5f3c2442ac416de941d8b59fc78ead9446737eef01a3",
+      "bytes": 235659
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/debugging/06_max_dq_0004.png",
+      "sha256": "289f6ef0003ab7e79fdb61fea3fbe4aa8f83ce7ef11a82aee52976295419411a",
+      "bytes": 268886
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/debugging/07_max_dq_0004_v2.png",
+      "sha256": "94bd2bd0ce37e06c6e2b8cd3c91393c281242e05582589fd19bd049ca3744291",
+      "bytes": 256416
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/development/20260728/signed_orientation_axes.png",
+      "sha256": "e260d095cafb571380551a662f2db835810872307482b5e1e3a69892bbac3126",
+      "bytes": 218873
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/development/20260728/signed_position_axes.png",
+      "sha256": "aada70cc0c7678c9f74ea24f8af012f2e9f9cae8598b1eb93814464f4c676f53",
+      "bytes": 247845
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/development/20260728/velocity_ik_summary.png",
+      "sha256": "14f825707109fb3de984d01f14c135e73fcc64913ec03e6a90a581bf8098688b",
+      "bytes": 275876
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/development/20260730/full_pose_6d_dls.png",
+      "sha256": "231e669f81ea63bfccf0d435ba419e598d44c9fd749cb1ba29af67d28a09009a",
+      "bytes": 261521
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/development/20260730/orientation_only_final.png",
+      "sha256": "e260d095cafb571380551a662f2db835810872307482b5e1e3a69892bbac3126",
+      "bytes": 218873
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/development/20260730/position_only_final.png",
+      "sha256": "aada70cc0c7678c9f74ea24f8af012f2e9f9cae8598b1eb93814464f4c676f53",
+      "bytes": 247845
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/development/final_6d_tracking.png",
+      "sha256": "94bd2bd0ce37e06c6e2b8cd3c91393c281242e05582589fd19bd049ca3744291",
+      "bytes": 256416
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/development/full_pose_cartesian_teleoperation.gif",
+      "sha256": "d8c6941a76bcf213142846197ba3840f15210efc3f3e89867f410ca75b77c01e",
+      "bytes": 13139869
+    },
+    {
+      "path": "franka-teleoperation/docs/images/teleop/development/initial_6d_tracking.png",
+      "sha256": "270c0bd80a039978f874286d3b7fe49ce1c7e46b9aee2d7aa1e243ef1a61f954",
+      "bytes": 202371
+    },
+    {
+      "path": "franka-teleoperation/docs/omy_l100_mujoco_teleop.gif",
+      "sha256": "2bd164b63cabfe0985eb16eb4a59835da5798649e5eccce3559a37eb7575dd6a",
+      "bytes": 4351209
+    },
+    {
+      "path": "franka-teleoperation/docs/omy_l100_teleop.md",
+      "sha256": "5b064c1818bed3e8d422c55bff7541311ca54579362938e7664df7601068b609",
+      "bytes": 3882
+    },
+    {
+      "path": "franka-teleoperation/docs/position_mode_debugging.md",
+      "sha256": "7bf12f4dfd049a6a028adadb0cda667f99bfa9827aa4e57cd1a7e3ab7a8ba517",
+      "bytes": 16851
+    },
+    {
+      "path": "franka-teleoperation/docs/real-time-omy-l100-synchronization.gif",
+      "sha256": "e08d936c75d66341e19c263fbdcd6e3f042d82a6f68007787a08ab243183f985",
+      "bytes": 13330523
+    },
+    {
+      "path": "franka-teleoperation/geomagic/__init__.py",
+      "sha256": "5d834f6350c1b3461993ef7a95409b1f9befc8d303afb0164072c15c2ab8b47e",
+      "bytes": 82
+    },
+    {
+      "path": "franka-teleoperation/geomagic/bridge/__init__.py",
+      "sha256": "cf6f1a604ab8c1e4728b5ac1b8d680822c4f0cece74d3b996a3e3db5a19f44b9",
+      "bytes": 80
+    },
+    {
+      "path": "franka-teleoperation/geomagic/bridge/build_sender_bundle.py",
+      "sha256": "cb604fa3606e30109bda048608a9c2ef1cead2c8d451bcea80ff5c4349d9588d",
+      "bytes": 1293
+    },
+    {
+      "path": "franka-teleoperation/geomagic/bridge/protocol.py",
+      "sha256": "a873d5420ff1ca798f160777dc90a3a4cf8835106e05ba2a608d53495df93941",
+      "bytes": 5751
+    },
+    {
+      "path": "franka-teleoperation/geomagic/bridge/synthetic_sender.py",
+      "sha256": "d12b5f17cc0c1b2acf1ff28bcb3b4697fe58ebd7036bc81dc16d182e600b20fd",
+      "bytes": 6674
+    },
+    {
+      "path": "franka-teleoperation/geomagic/bridge/timing_stats.py",
+      "sha256": "c187c20634a0552f693adbfa66cbebf966d062c64843af41c5644c6cfa2bbb70",
+      "bytes": 1852
+    },
+    {
+      "path": "franka-teleoperation/geomagic/bridge/udp_state_client.py",
+      "sha256": "9a1daa6ed8ff8269a37af847a9bc7168d333cae4c07b7942c9ff039b89691300",
+      "bytes": 8246
+    },
+    {
+      "path": "franka-teleoperation/geomagic/bridge/validate_lan_stream.py",
+      "sha256": "b5c980d70e18933d3d7dea4fd848db4cad69faa3f938046d5ebd2dc2c1f666d1",
+      "bytes": 15900
+    },
+    {
+      "path": "franka-teleoperation/geomagic/config/input_deadband.json",
+      "sha256": "aeb304931f623cdb7fffcba48f54e346efb27598834191a4b9374c3ef8107980",
+      "bytes": 276
+    },
+    {
+      "path": "franka-teleoperation/geomagic/device/analyze_capture.py",
+      "sha256": "bcdf0c69d61f1e844fde937ecccf0f2d10a305aaf710f75e73ec98a38cf6e28a",
+      "bytes": 13046
+    },
+    {
+      "path": "franka-teleoperation/geomagic/device/build_hdapi_state_stream.sh",
+      "sha256": "b9b31eeea9aaa17108d66a0584760376d4f9ae7a5e8f9fdb4bc45206159bec3c",
+      "bytes": 1125
+    },
+    {
+      "path": "franka-teleoperation/geomagic/device/build_teleop_geo_hdapi.sh",
+      "sha256": "29277d510696f47f50cc9fef86f8c15c0039215607f030c41bef4146e78a0fc2",
+      "bytes": 778
+    },
+    {
+      "path": "franka-teleoperation/geomagic/device/csv_capture.py",
+      "sha256": "153d13f2996359137f4b8187b33b954064d00cf7c4d85803ef89356643cd8bc8",
+      "bytes": 4034
+    },
+    {
+      "path": "franka-teleoperation/geomagic/device/hdapi_state_stream.cpp",
+      "sha256": "6ac9cded865fabd65ce136b863133ba10ce62759537e0b0050e5afc50342d026",
+      "bytes": 23546
+    },
+    {
+      "path": "franka-teleoperation/geomagic/device/raw_trial_capture.py",
+      "sha256": "9c084966429ea3950ad8c66e03ae71787c4ee4dc07b15c72b0db07ce27b2be09",
+      "bytes": 7612
+    },
+    {
+      "path": "franka-teleoperation/geomagic/device/run_hdapi_state_stream.sh",
+      "sha256": "cdc1e43c608206a832053777a1ffc7ad01599fc3a29e122405f62e6797ed5336",
+      "bytes": 894
+    },
+    {
+      "path": "franka-teleoperation/geomagic/device/sync_trace.h",
+      "sha256": "3df5f1729abbead9c0679dc3ad787e6753b787ae21f9b14d57c219016063c6ab",
+      "bytes": 7549
+    },
+    {
+      "path": "franka-teleoperation/geomagic/device/teleop_geo_force.h",
+      "sha256": "773a7efff4c389bd4dd00842a1dd3a871bb58477e31b2890001330ed4a29f6c0",
+      "bytes": 3811
+    },
+    {
+      "path": "franka-teleoperation/geomagic/device/teleop_geo_hdapi.cpp",
+      "sha256": "cda7e27cceaa2995d58f3066f75b5a6c5fc25cb34249bf18dd8d3da4e91d7804",
+      "bytes": 19873
+    },
+    {
+      "path": "franka-teleoperation/geomagic/leader/__init__.py",
+      "sha256": "a9ba1983339eefc8428cc304da87428f69b7a884da675200485ffcbb9afb5218",
+      "bytes": 148
+    },
+    {
+      "path": "franka-teleoperation/geomagic/leader/teleop_backend.py",
+      "sha256": "fa394d9ddcf6fe1fbac965923e7c70c76700889850134b5b7844345942e6e7ea",
+      "bytes": 17818
+    },
+    {
+      "path": "franka-teleoperation/geomagic/standalone/__init__.py",
+      "sha256": "46c9254d965133316af7522bbd311ef60376eaeaa0c9664f2a35ca00cf8ac6e5",
+      "bytes": 80
+    },
+    {
+      "path": "franka-teleoperation/geomagic/standalone/app.py",
+      "sha256": "d3cced71ae95c2cfe8c458d80176c94bea1ed79857edfcf8c7b596cf092f851a",
+      "bytes": 7999
+    },
+    {
+      "path": "franka-teleoperation/geomagic/standalone/benchmark.py",
+      "sha256": "5c0464bb43df7301f3e4fb786bc6cd0a0edc25092b36b5c63b44ba961de75d21",
+      "bytes": 3575
+    },
+    {
+      "path": "franka-teleoperation/geomagic/standalone/control.py",
+      "sha256": "0eaa507f53d736309a6c1b7951b2b263ed38910c66d5f81d12096721aa7987b2",
+      "bytes": 3926
+    },
+    {
+      "path": "franka-teleoperation/geomagic/standalone/device.py",
+      "sha256": "c7708439d585ef400524e5fcd3d9cd6ec4a7927b4430e812f0d48525a6741062",
+      "bytes": 12720
+    },
+    {
+      "path": "franka-teleoperation/geomagic/standalone/haptic_config.py",
+      "sha256": "ef9c7f12eea320e73da2870015eb749ca524e77d7cd09328a7c3d9e2cf2e1623",
+      "bytes": 652
+    },
+    {
+      "path": "franka-teleoperation/geomagic/standalone/haptic_release.py",
+      "sha256": "8b3b337419304e6b1cc458f1ed988c116bb988ea65f1c85454857adb6aa48fac",
+      "bytes": 5388
+    },
+    {
+      "path": "franka-teleoperation/geomagic/standalone/haptics.py",
+      "sha256": "cf81208c5da253de91796f759e43d3ba52947717584a1ba0b91b15cd388ddd2e",
+      "bytes": 7950
+    },
+    {
+      "path": "franka-teleoperation/geomagic/standalone/ui_haptics.py",
+      "sha256": "a831eb74bfff0beaccc177cac5c7c89d69c8ce49559a11ac2e67fbfe1c43b5f6",
+      "bytes": 3163
+    },
+    {
+      "path": "franka-teleoperation/geomagic/standalone/viewer.py",
+      "sha256": "f660fd1a0df466ee1ef7f7eaf44b8f1266a6a8798ad8b4c66f7d15a97c6b8a62",
+      "bytes": 9865
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/__init__.py",
+      "sha256": "38dfc1c2b6df223a742fee4f4695021d483f8161c336876e6ed097f40e84a99f",
+      "bytes": 76
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/analyze_sync.py",
+      "sha256": "3e97c7e9a9723435ce49ac5f0efc0baaf59d1561ad3ab71f6b5649ca7a9f6a71",
+      "bytes": 32174
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/analyze_tracking.py",
+      "sha256": "cbb9e5c487407ae64dfeea0fcdb7d50be9516067e6a11bef7e71c5c3243145d4",
+      "bytes": 9838
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/anti_windup.py",
+      "sha256": "9f0eeaf74ae9f65fa1abd2eea63ccadb1cb521990be2cc8da087f12d80dad2d9",
+      "bytes": 4136
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/diagnostics.py",
+      "sha256": "97cb3ab38246af22c453701a82d275fb0f089896e45929ccb05994e65ff499a9",
+      "bytes": 14371
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/fr3_target_controller.py",
+      "sha256": "50bde069c909a353893c2563108a07ea716e6006bba0dd9e67f3de5f172426d9",
+      "bytes": 7839
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/gravity_support.py",
+      "sha256": "eb3caa5acbc0b5ca714bf5b617d031bf92085a3f1da0110ec848351db2b5aa37",
+      "bytes": 2761
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/input_deadband.py",
+      "sha256": "2900ebcbe6a0864c0183e0f6cae38e0da24e9a151c0d036737ff028002765501",
+      "bytes": 8367
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/measure_idle_noise.py",
+      "sha256": "86e4150fe60509fc2d433f4d177246d7d7340ae0c1be97fa80b97a680fb93a81",
+      "bytes": 5129
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/pipeline.py",
+      "sha256": "411f3294a2df90ea83890fd7e13236a5a4763181cc204cdff2f5978c3876dc35",
+      "bytes": 4963
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/plot_rotation_semantics.py",
+      "sha256": "f36e089a479c26911ccd2c3ad4249cb8cde9e6223dff8afd8262bd7abb42f3a8",
+      "bytes": 968
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/pose_mapper.py",
+      "sha256": "86297847ba92c30fca3baf0d2708ee2d44ab77a99e132cb90fd88d955a4e52bb",
+      "bytes": 14070
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/robot_helpers.py",
+      "sha256": "73c5ce81f24336f1aa08eab49575f9fd6655abd491a61996b8d668860d404ce9",
+      "bytes": 5547
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/runtime_profile.py",
+      "sha256": "3d760b8ed42595f3664c96daecb2b0fa8ac2f44f884ebd05e7060d0c635a6a75",
+      "bytes": 6077
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/runtime_rotation.py",
+      "sha256": "0782354c2b491958d07d837281c1c43413777553f32a12fef6415aa4e8e3a12c",
+      "bytes": 2151
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/sync_capture.py",
+      "sha256": "350e5e2217b7f3e2d2bf7787335b31c9a261b0e080d86c1534d353f8fd30383e",
+      "bytes": 6583
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/synthetic.py",
+      "sha256": "61e288ba4f223307a061053bb0461f350dd2e7e855ef7b5355bbf50d243661de",
+      "bytes": 4639
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/validate_gravity_timing.py",
+      "sha256": "dcb2d1c7c7b589f02f19c0a3eda87e9b7ab74ed231578d4e2145fb84f9a472f2",
+      "bytes": 13353
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/validate_rotation_semantics.py",
+      "sha256": "978dc8c748a8f813a27373a630c6ca8e6d91e459b36a02503a8ca30be6d4671c",
+      "bytes": 5186
+    },
+    {
+      "path": "franka-teleoperation/geomagic/teleop/validate_ui_runtime.py",
+      "sha256": "2259f2714ee1fb12dffc8b7e37d5798e682027be8c76a55101f46b9a95f4ff41",
+      "bytes": 13685
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/__init__.py",
+      "sha256": "81950cb890512147fabd88d72f082cebfca7a21c3529ce6b7255e026687cf17d",
+      "bytes": 35
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/fake_teleop_geo_owner.py",
+      "sha256": "1c639ad0bfb3e4b043979ec3e3eeedd32e214b52b3ccc2a39d1c1d7214a42a90",
+      "bytes": 2087
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/teleop_geo_force_test.cpp",
+      "sha256": "b1b9e96c5993027b219fac45c0602d9be10a38d64a60659280bbd4458796c50b",
+      "bytes": 3867
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/teleop_geo_frame_test.cpp",
+      "sha256": "8aa072fddd2564b3c9c260b994b08494eb4ce2195135ed3bae33a5c8da07a1ed",
+      "bytes": 7679
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_6dof_mode.py",
+      "sha256": "f4cbd1c76615b3da2483cc3ebe841f2a39d745df84f6c5c13cfecd8b93004b5e",
+      "bytes": 12523
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_anti_windup.py",
+      "sha256": "660d9d056a26272ea9ab18ebbf9d8e5cbbf702d1e15fefe2f92ebe43a2232f1d",
+      "bytes": 13250
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_fr3_target_controller.py",
+      "sha256": "553caf70f91d3539b7a13715d2825ad1fa3cd53a7a1e8d93e5b8b61028f44856",
+      "bytes": 32580
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_haptic_retreat.py",
+      "sha256": "882f6be0681bdf989827348af7a49a661c43de7115fa1a0c5b6387c87e284278",
+      "bytes": 16512
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_orientation_conditioning.py",
+      "sha256": "792e599eb1a6c2249aaf7c2e0b67a82499479773b38abb26242b00ee0d2b1ecd",
+      "bytes": 11907
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_pose_mapper.py",
+      "sha256": "4a348ca4a16b8ce6539f7bfd2e68fcb4734d2351427dd7b3eaba273536dc8ff3",
+      "bytes": 24671
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_protocol.py",
+      "sha256": "dbfc21e4397aeacc77b33a3f7ab739184e7506d5ad821e52b783b98adf60c38b",
+      "bytes": 5682
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_rotation_modes.py",
+      "sha256": "b527864a7b07412dd242bcaebac8189b0cca14382280ba7e33959b878a3ceef0",
+      "bytes": 4725
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_rotation_semantics.py",
+      "sha256": "9cbc3b6b4c6e3dad2eecbbb52ffd041de2eb72881367921ddab9c12d77146130",
+      "bytes": 2916
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_runtime_continuity.py",
+      "sha256": "78e98a50d190476697d9d271f90d66ecf28e6e4890392891e04da666679e4480",
+      "bytes": 2831
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_standalone_geo.py",
+      "sha256": "b4a88afcdf9b6c833719d49aab08337cae797b9ca5454166955831007d9e134e",
+      "bytes": 24713
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_udp_state_client.py",
+      "sha256": "4fda1fbbec302b4c11ae0f6e3156d0b6ee9b8634d4f883c748b07e3ec913e45d",
+      "bytes": 10517
+    },
+    {
+      "path": "franka-teleoperation/geomagic/tests/test_ui_haptics.py",
+      "sha256": "88665b2f98a59d8e0f4ca96e45a3145ad03d4f5f176b5582b2df3fda9b627df2",
+      "bytes": 13276
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/__init__.py",
+      "sha256": "b4c188e35fc4ab9db5a3a0eacf0bec1bb45e6b2ec5663c9ded176363e2e1943c",
+      "bytes": 71
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/fr3_controller_snapshot/FR3_omy_bridge.py",
+      "sha256": "3b92baa12485a6a156fac31fd7b566c8ce2f39d70bd4d837b02badb89c424bfa",
+      "bytes": 61100
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/fr3_controller_snapshot/adapter.py",
+      "sha256": "6bd51926bc1daa81edc918dc8966786fd16a6fda3f5de8d9ffacf5c3f7ce459e",
+      "bytes": 1664
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_core/PROVENANCE.json",
+      "sha256": "67bd96fca7bc61d9ccfcc97d42d64dbba30545278fe0030e85927bcf8a8d867a",
+      "bytes": 1538
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_core/__init__.py",
+      "sha256": "e8ba802991b0a6168df348aa3f8dc7946183cf859d3c6e11dc011447b5a94b29",
+      "bytes": 80
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_core/clutch.py",
+      "sha256": "2ab87dbd626b520748bd473a7593627763cdf82af4dee6d9c0e674890b083ed6",
+      "bytes": 756
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_core/controller.py",
+      "sha256": "006fd1c0cce220c479d7173c039452b013c5e51b68e1e59719554a0c57dcaba8",
+      "bytes": 10129
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_core/frames.py",
+      "sha256": "1819807d6e8bc7e52e055c173752eef713b30f5520ec0e7a74d287040087dffb",
+      "bytes": 4367
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_core/pose_mapping.py",
+      "sha256": "f3ee7a6e4c6b7dece605cf6e192d9b1adc0dad007b23ef177c86ca8554d7302f",
+      "bytes": 13444
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_core/rotations.py",
+      "sha256": "7ed0131e2002e6154f991020d6d6d1387b6535ba61d4a1031cbe4e2ccd4c771b",
+      "bytes": 5815
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_core/scaling.py",
+      "sha256": "76f201a27d80c50f2b84592250541d8683fc0fcf32efd8929c8bae2d5f3770ca",
+      "bytes": 795
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_core/state.py",
+      "sha256": "e892f3fd9aad1db6354a08b7e786a94a0e3409eece8f257d2198df23cb403d67",
+      "bytes": 2077
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_reference/clutch.py",
+      "sha256": "24359449b6afd716e2dad365c86a08e68e7230c2211bb098b0e9c90b3aa62206",
+      "bytes": 613
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_reference/controller.py",
+      "sha256": "30b96d9d65033d0c21a13d27acdf7960c359067d9ca9a4081715f3004e39e0e7",
+      "bytes": 10001
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_reference/frames.py",
+      "sha256": "37c3cb21e6b54cbf9c2e88e16ebee7fd1c42558375b5d6447da76c4503f0ce5d",
+      "bytes": 5609
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_reference/pose_mapping.py",
+      "sha256": "a4105eec0f17578a54ac0860bcc619a6ec59aef5765e0ef182ad16ab6b6ac125",
+      "bytes": 14804
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_reference/rotations.py",
+      "sha256": "7031e77ac9c10568038a74f3ae26b120a333d5bfc5a3a4cf218c3c9e109d0eda",
+      "bytes": 5669
+    },
+    {
+      "path": "franka-teleoperation/geomagic/vendor/geomagic_reference/scaling.py",
+      "sha256": "ef7ceeebab7928cc96e9b97b784eddfa0eb5faf1bf0034a97fab0ecfa65a88eb",
+      "bytes": 651
+    },
+    {
+      "path": "franka-teleoperation/launch/FR3_EEposes.py",
+      "sha256": "1d88e7bd5d4fd0b45cc40240d4f8c03cf05c54a454c5a4aeed0c5edb1ba12b55",
+      "bytes": 895
+    },
+    {
+      "path": "franka-teleoperation/launch/FR3_omy_bridge.py",
+      "sha256": "52344486256529403f36726caae13909d23cd2c929ae9f7c465090eaf5964f2f",
+      "bytes": 56174
+    },
+    {
+      "path": "franka-teleoperation/launch/fr3_omy_sync.py",
+      "sha256": "e570d5eac227fe462b9b80324ab21cb56045ddc2c02169e3387364e7d8ae82d3",
+      "bytes": 1646
+    },
+    {
+      "path": "franka-teleoperation/launch/omy_EEposes.py",
+      "sha256": "593b867f561ffc912825f1ae233e319ba450071f656fc72c22369fd1182b593e",
+      "bytes": 778
+    },
+    {
+      "path": "franka-teleoperation/launch/omy_sim_sync.py",
+      "sha256": "56df969c2112c1a0c9211ab1ea3559d8545482a082cce6ef34c1958a9e3a5f43",
+      "bytes": 1635
+    },
+    {
+      "path": "franka-teleoperation/scripts/omy_sim_bridge.py",
+      "sha256": "594c1ec9baa71eed2edcd8dd276233e135984878e75c997b6f491f658a129eef",
+      "bytes": 2648
+    },
+    {
+      "path": "franka-teleoperation/scripts/plot_orientation_log.py",
+      "sha256": "9c2e5b2ca01c93f8ab306fb98e61e253ea4b195aef591dbb33873e20eb2f4ceb",
+      "bytes": 15246
+    },
+    {
+      "path": "franka-teleoperation/scripts/test_fr3_joint_isolation.py",
+      "sha256": "cbafcda76614b2312ab4b8483ca540a7ac49071b84da98c852fc28f4fbefb2ca",
+      "bytes": 2979
+    },
+    {
+      "path": "franka-teleoperation/simul",
+      "sha256": "8d7cb1227de223f4f4e9fcfd7e48047599e9afdfe71250902638bcdff3e742ce",
+      "bytes": 2163
+    },
+    {
+      "path": "franka-teleoperation/src/README_collision.md",
+      "sha256": "c15b1fce89917c420463084d1034815a3ad585375cadaad0e8b7fda2bf5442cc",
+      "bytes": 1099
+    },
+    {
+      "path": "franka-teleoperation/src/collision_node.cpp",
+      "sha256": "c456c0da507971b2c178cdd95b9384cd49eed26783fe6523318c880be123690b",
+      "bytes": 10339
+    },
+    {
+      "path": "franka-teleoperation/src/fr3_collision_feedback.py",
+      "sha256": "5b4df5182ab6f8588bd7860438bb211890da6ce3e639df4a75055ddc7eeb06a6",
+      "bytes": 6545
+    },
+    {
+      "path": "franka-teleoperation/teleop",
+      "sha256": "c887cfdc65669594ece260bcf06b67d201bb2e46bdcb149d6cd51151fa530489",
+      "bytes": 471
+    },
+    {
+      "path": "franka-teleoperation/tests/test_nullspace_posture.py",
+      "sha256": "ae52b9685d8ff255c48d1b8185000a45b49004ae417356bae95f057cdcb371a8",
+      "bytes": 1738
+    }
+  ],
+  "manifest_scope": "manifest_sha256 identifies the full pre-pruning validation snapshot; files below are its retained repository entries, before publication-only edits"
+}
