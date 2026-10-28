@@ -2,7 +2,11 @@
 
 ## Overview
 
-**Public v1 is a source/reference release.** It provides the ordinary Geomagic Touch device, bridge, mapping, control and haptic source, CPU regression tests, and the historical OMY-L100 Cartesian teleoperation implementation for MuJoCo Franka FR3.
+This repository implements a teleoperation stack for a **MuJoCo-simulated Franka FR3**, using Geomagic Touch and historical OMY-L100 leader inputs.
+
+The control pipeline includes **Cartesian mapping, damped least-squares inverse kinematics, null-space posture control, clutching, motion conditioning, and contact-force-based haptic command generation**.
+
+**Public v1 is a source/reference release.** It includes the Geomagic Touch device interface, bridge, mapping and control source, haptic implementation, CPU regression tests, and the historical OMY-L100 teleoperation source.
 
 **Historical reproduction limit:** the original OMY MuJoCo scene/model bundle was not committed, and its exact asset provenance could not be recovered. Remaining local model copies are modified derivatives and are not used as substitutes. Original OMY launchers/configs are preserved as reference code; this repository does **not** provide a ready-to-run reconstruction of the original OMY environment. **Physical Franka deployment is not claimed.**
 
@@ -90,9 +94,9 @@ This limitation is part of the source/reference release contract. It is not a cl
 
 ## Related Robot Learning Repository
 
-The companion **`franka-imitation-learning`** candidate contains Square, ordinary Touch collection, dataset validation/conversion, ACT and Diffusion Policy wrappers, and analysis of fixed TEST50 results. Its release contract is executable/research artifacts within its documented limits, distinct from this source/reference release. Publication is pending; no live successor URL is asserted here.
+The companion [franka-imitation-learning](https://github.com/jack2148/franka-imitation-learning) repository contains Square demonstration collection, LeRobot dataset construction, ACT / Diffusion Policy training interfaces, and frozen TEST50 evaluation.
 
-The companion reports ACT 27/50 (54%) and Diffusion Policy 43/50 (86%) for the specified checkpoints on the same frozen TEST50. Those are observations under that protocol, not algorithm-wide superiority. Learning code, configurations, results and historical TRAIN provenance limits are unchanged by this release-contract revision.
+The companion reports ACT **27/50 (54%)** and Diffusion Policy **43/50 (86%)** on the same frozen TEST50 of 50 different initial states. These results describe the evaluated checkpoints and do not establish general algorithm superiority.
 
 ## Third-Party / Provenance
 
